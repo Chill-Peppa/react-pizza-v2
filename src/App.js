@@ -20,7 +20,7 @@ function App() {
             {pizzasArray.map((card) => (
               //вместо переписывания всех пропсов ДЛЯ КРАСОТЫ И ЧИСТОТЫ кода
               //передаю все не колбасой пропсов, а спредом ...
-              <PizzaBlock {...card} />
+              <PizzaBlock key={card.id} {...card} />
             ))}
           </div>
         </div>
