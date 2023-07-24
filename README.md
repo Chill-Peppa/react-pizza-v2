@@ -8,7 +8,7 @@ https://www.figma.com/file/wWUnQwvRDWBfPx1v1pCAfO/React-Pizza?type=design&node-i
 
 # Ссылка на задеплоенный проект
 
-(добавлю потом)
+https://react-pizza-v2-chill-peppa.vercel.app/
 
 # Стек технологий
 
