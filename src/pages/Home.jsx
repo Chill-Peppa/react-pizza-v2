@@ -18,24 +18,30 @@ const Home = () => {
         setPizzasArray(arr);
         setIsLoading(false);
       });
+
+    //при первом рендере сделай скролл
+    //вверх на главной странице
+    window.scrollTo(0, 0);
   }, []);
 
   return (
     <>
-      <div className="content__top">
-        <Categories />
-        <Sort />
-      </div>
-      <h2 className="content__title">Все пиццы</h2>
-      <div className="content__items">
-        {isLoading
-          ? //создаю фейковый массив, чтобы при загрузке скелетон не дергался
-            [...new Array(8)].map((_, index) => <Skeleton key={index} />)
-          : pizzasArray.map((card) => (
-              //вместо переписывания всех пропсов ДЛЯ КРАСОТЫ И ЧИСТОТЫ кода
-              //передаю все не колбасой пропсов, а спредом ...
-              <PizzaBlock key={card.id} {...card} />
-            ))}
+      <div className="container">
+        <div className="content__top">
+          <Categories />
+          <Sort />
+        </div>
+        <h2 className="content__title">Все пиццы</h2>
+        <div className="content__items">
+          {isLoading
+            ? //создаю фейковый массив, чтобы при загрузке скелетон не дергался
+              [...new Array(8)].map((_, index) => <Skeleton key={index} />)
+            : pizzasArray.map((card) => (
+                //вместо переписывания всех пропсов ДЛЯ КРАСОТЫ И ЧИСТОТЫ кода
+                //передаю все не колбасой пропсов, а спредом ...
+                <PizzaBlock key={card.id} {...card} />
+              ))}
+        </div>
       </div>
     </>
   );
