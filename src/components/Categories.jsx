@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Categories() {
-  const [activeIndexCategory, setActiveIndexCategory] = React.useState(0);
+function Categories({ activeIndexCategory, onClickCategory }) {
+  // const [activeIndexCategory, setActiveIndexCategory] = React.useState(0);
 
-  const onClickCategory = (index) => {
-    setActiveIndexCategory(index);
-  };
+  // const onClickCategory = (index) => {
+  //   setActiveIndexCategory(index);
+  // };
 
   const categories = [
     'Все',
