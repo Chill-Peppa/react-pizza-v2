@@ -4,8 +4,8 @@ function Sort({ value, onClickSort }) {
   const [isOpen, setIsOpen] = React.useState(false);
 
   const sortNames = [
-    { name: 'по пулярности (DESC)', sortProperty: 'rating' },
-    { name: 'по пулярности (ASC)', sortProperty: '-rating' },
+    { name: 'популярности (DESC)', sortProperty: 'rating' },
+    { name: 'популярности (ASC)', sortProperty: '-rating' },
     { name: 'цене (DESC)', sortProperty: 'price' },
     { name: 'цене (ASC)', sortProperty: '-price' },
     { name: 'алфавиту (DESC)', sortProperty: 'title' },

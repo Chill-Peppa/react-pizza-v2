@@ -10,7 +10,7 @@ const Home = () => {
   //Подняли стейт
   const [categoryId, setCategoryId] = React.useState(0);
   const [sortType, setSortType] = React.useState({
-    name: 'по пулярности',
+    name: 'популярности',
     sortProperty: 'rating',
   });
 
