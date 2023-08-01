@@ -1,12 +1,6 @@
 import React from 'react';
 
 function Categories({ activeIndexCategory, onClickCategory }) {
-  // const [activeIndexCategory, setActiveIndexCategory] = React.useState(0);
-
-  // const onClickCategory = (index) => {
-  //   setActiveIndexCategory(index);
-  // };
-
   const categories = [
     'Все',
     'Мясные',
