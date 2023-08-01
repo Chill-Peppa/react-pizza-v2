@@ -25,13 +25,11 @@ const Home = () => {
     //Но при проверке минус используем, чтобы идентифицировать нужную сортировку
     const order = sortType.sortProperty.includes('-') ? 'asc' : 'desc';
     const sortBy = sortType.sortProperty.replace('-', '');
+    const category = categoryId > 0 ? `category=${categoryId}` : '';
 
     setIsLoading(true);
     fetch(
-      `https://64b59113f3dbab5a95c77af8.mockapi.io/items?${
-        categoryId > 0 ? `category=${categoryId}` : ''
-      }&sortBy=${sortBy}&order=${order}`,
-      //replace - вырежем минус
+      `https://64b59113f3dbab5a95c77af8.mockapi.io/items?${category}&sortBy=${sortBy}&order=${order}`,
     )
       .then((res) => {
         return res.json();
