@@ -4,7 +4,7 @@ import Sort from '../components/Sort';
 import PizzaBlock from '../components/PizzaBlock/PizzaBlock';
 import Skeleton from '../components/PizzaBlock/Skeleton';
 
-const Home = () => {
+const Home = ({ searchValue }) => {
   const [pizzasArray, setPizzasArray] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
   //Подняли стейт
@@ -14,7 +14,24 @@ const Home = () => {
     sortProperty: 'rating',
   });
 
-  console.log('тeст', sortType.sortProperty);
+  const pizzas = pizzasArray
+    .filter((obj) => {
+      if (obj.title.toLowerCase().includes(searchValue.toLowerCase())) {
+        return true;
+      } else {
+        return false;
+      }
+    })
+    .map((card) => (
+      //вместо переписывания всех пропсов ДЛЯ КРАСОТЫ И ЧИСТОТЫ кода
+      //передаю все не колбасой пропсов, а спредом ...
+      <PizzaBlock key={card.id} {...card} />
+    ));
+
+  //создаю фейковый массив, чтобы при загрузке скелетон не дергался
+  const skeleton = [...new Array(8)].map((_, index) => (
+    <Skeleton key={index} />
+  ));
 
   //ВАЖНО! почему проверка > 0? Потому что 0 - это первый
   //элемент массива с катеориями, то есть "Все". Нам не нужно как-то сортировать
@@ -55,16 +72,7 @@ const Home = () => {
           <Sort value={sortType} onClickSort={(id) => setSortType(id)} />
         </div>
         <h2 className="content__title">Все пиццы</h2>
-        <div className="content__items">
-          {isLoading
-            ? //создаю фейковый массив, чтобы при загрузке скелетон не дергался
-              [...new Array(8)].map((_, index) => <Skeleton key={index} />)
-            : pizzasArray.map((card) => (
-                //вместо переписывания всех пропсов ДЛЯ КРАСОТЫ И ЧИСТОТЫ кода
-                //передаю все не колбасой пропсов, а спредом ...
-                <PizzaBlock key={card.id} {...card} />
-              ))}
-        </div>
+        <div className="content__items">{isLoading ? skeleton : pizzas}</div>
       </div>
     </>
   );
