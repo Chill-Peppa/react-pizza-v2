@@ -48,7 +48,7 @@ const Home = ({ searchValue }) => {
 
     setIsLoading(true);
     fetch(
-      `https://64b59113f3dbab5a95c77af8.mockapi.io/items?page=1&limit=4&${category}&sortBy=${sortBy}&order=${order}`,
+      `https://64b59113f3dbab5a95c77af8.mockapi.io/items?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}`,
     )
       .then((res) => {
         return res.json();
@@ -63,6 +63,10 @@ const Home = ({ searchValue }) => {
     window.scrollTo(0, 0);
   }, [categoryId, sortType, currentPage]);
 
+  const onChangePage = (number) => {
+    setCurrentPage(number);
+  };
+
   return (
     <>
       <div className="container">
@@ -76,7 +80,7 @@ const Home = ({ searchValue }) => {
         <h2 className="content__title">Все пиццы</h2>
         <div className="content__items">{isLoading ? skeleton : pizzas}</div>
       </div>
-      <Pagination />
+      <Pagination onChangePage={onChangePage} />
     </>
   );
 };
