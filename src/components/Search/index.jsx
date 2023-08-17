@@ -2,8 +2,11 @@ import React from 'react';
 import styles from './search.module.scss';
 import search from '../../assets/img/search.svg';
 import clear from '../../assets/img/close.svg';
+import { SearchContext } from '../../contexts/SearchContext';
 
-const Search = ({ searchValue, setSearchValue }) => {
+const Search = () => {
+  const { searchValue, setSearchValue } = React.useContext(SearchContext);
+
   const changeInputValue = (e) => {
     setSearchValue(e.target.value);
   };
