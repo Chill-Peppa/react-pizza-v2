@@ -13,15 +13,18 @@ https://react-pizza-v2-chill-peppa.vercel.app/
 # Стек технологий
 
 - ReactJS 18
-- TypeScript
-- Redux Toolkit (хранение данных / пицц)
 - React Router v6 (навигация)
-- Axios + Fetch (отправка запроса на бэкенд)
 - React Hooks (хуки)
 - Prettier (форматирование кода)
 - CSS-Modules / SCSS (стилизация)
 - React Content Loader (скелетон)
 - React Pagination (пагинация)
+
+# Что еще не использовалось, но планируется:
+
+- TypeScript
+- Redux Toolkit (хранение данных / пицц)
+- Axios + Fetch (отправка запроса на бэкенд)
 - Lodash.Debounce
 - Code Splitting, React Loadable, useWhyDidYouUpdate
 
@@ -30,5 +33,3 @@ https://react-pizza-v2-chill-peppa.vercel.app/
 Проект необходимо скачать. Запуск приложения осуществляется командой: `npm start`
 
 Запускает приложение в режиме разработки. Откройте http://localhost:3000, чтобы просмотреть его в браузере.
-
-test
